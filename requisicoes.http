@@ -1,0 +1,162 @@
+//ROTAS PARA "ALUNOS"
+
+## Novo Aluno
+POST /api/v1/alunos HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "nome":"Alex Castanheira",
+    "email":"alex@aluno.riogrande.ifrs.edu.br",
+    "cpf":"1234678901"
+}
+
+### Novo Aluno
+POST /api/v1/alunos HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "nome":"Maryene Claudino",
+    "email":"mary@aluno.riogrande.ifrs.edu.br",
+    "cpf":"78541236958"
+}
+
+
+### Get Aluno por CPF
+GET /api/v1/alunos/1234678901 HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+
+### Get All
+GET /api/v1/alunos HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+
+------------------------------------------------------------
+
+//ROTAS PARA "PROFESSORES"
+
+### Novo Professor
+POST /api/v1/professores HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "siape":"1810497",
+    "formacao":"Eng Software",
+    "nome":"Márcio Torres"
+}
+
+### Get All Professores
+GET /api/v1/professores HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+
+------------------------------------------------------------
+
+//ROTAS PARA "DISCIPLINAS"
+
+### Nova Disciplina
+POST /api/v1/disciplinas HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "nome":"Princípios e Padrões de Projetos",
+    "ementa":"Texto muito longo....",
+    "cargaHoraria":66,
+    "aulasSemanais":4,
+    "codigo":"PPP"
+}
+
+### Nova Disciplina
+POST /api/v1/disciplinas HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "nome":"Princípios e Padrões de Arquitetura",
+    "ementa":"Texto muito longo....",
+    "cargaHoraria":66,
+    "aulasSemanais":4,
+    "codigo":"PPA"
+}
+
+### Get All Disciplinas
+GET /api/v1/disciplinas HTTP/1.1
+Host: localhost:8080
+Accept: application/json
+
+------------------------------------------------------------
+
+//ROTAS PARA "TURMAS"
+
+### Nova Turma
+POST /api/v1/turmas HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "codigo":"TurmaPPA",
+    "disciplinaCodeName":"PPA",
+    "siape":"1810497",
+    "semestre":"02/2014",
+    "sala":"Lab5",
+    "vagas":30
+}
+
+# ### Get All Turmas
+# GET /api/v1/turmas HTTP/1.1
+# Host: localhost:8080
+# Accept: application/json
+
+------------------------------------------------------------
+
+//ROTA PARA MATRICULAR "ALUNO" EM UMA "TURMA"
+
+### Nova Matrícula
+POST /api/v1/turmas/matricular HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cpf":"1234678901",
+    "codigoTurma":"TurmaPPA"
+}
+
+### Nova Matrícula
+POST /api/v1/turmas/matricular HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cpf":"78541236958",
+    "codigoTurma":"TurmaPPA"
+}
+
+### Nova Matrícula (Depois de Reprovado)
+POST /api/v1/turmas/matricular HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cpf":"1234678901",
+    "codigoTurma":"TurmaPPA"
+}
+
+------------------------------------------------------------
+
+//ROTA PARA APROVAR "ALUNO" EM UMA "TURMA"
+
+### Nova Matrícula
+POST /api/v1/turmas/aprovar HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+    "cpf":"1234678901",
+    "codigoTurma":"TurmaPPA"
+}
+
+------------------------------------------------------------
